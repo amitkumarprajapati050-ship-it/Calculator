@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.contaner {
+  width: 300px;
+  height: 375px;
+  border: 1px solid #000;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-template-rows: repeat(6, 60px);
+  font-size: 20px;
+  justify-content: center;
+  align-content: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  /* padding: 20px; */
+  margin-top: 20px;
+  background-color: silver;
+}
+#total {
+  grid-column: span 4;
+  padding: 5px;
+  margin: 10px;
+  font-size: 20px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+#C {
+  grid-column: span 2;
+}
+button {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border: 1px solid #000;
+  margin: 5px;
+  transition: background-colour ease 0.2;
+  -webkit-transition: background-colour ease 0.2;
+  -moz-transition: background-colour ease 0.2;
+  -ms-transition: background-colour ease 0.2;
+  -o-transition: background-colour ease 0.2;
+}
+button:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  background-color: gray;
+}
+#EqualeTo {
+  background-color: orange;
+}
