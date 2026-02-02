@@ -5,7 +5,7 @@ let currentInput = "";
 let previousInput = "";
 let operator = "";
 
-// NEW (for repeated =)
+// For repeated =
 let lastOperator = "";
 let lastNumber = "";
 
@@ -29,16 +29,24 @@ document.addEventListener("keydown", (e) => {
 
 // =============== MAIN LOGIC ===============
 function handleInput(value) {
-  // Numbers
+  // Numbers & Decimal
   if (!isNaN(value) || value === ".") {
     currentInput += value;
     display.value = currentInput;
     return;
   }
 
-  // Operators
+  // Operators (FIXED)
   if (["+", "-", "*", "/"].includes(value)) {
+    // Allow operator after result
+    if (currentInput === "" && display.value !== "") {
+      previousInput = display.value;
+      operator = value;
+      return;
+    }
+
     if (currentInput === "") return;
+
     operator = value;
     previousInput = currentInput;
     currentInput = "";
@@ -80,8 +88,8 @@ function handleInput(value) {
     lastNumber = currentInput;
 
     display.value = result;
-    currentInput = "";
     previousInput = result.toString();
+    currentInput = "";
     operator = "";
     return;
   }
@@ -105,10 +113,8 @@ function handleInput(value) {
   }
 
   // Plus / Minus
-  if (value === "+/-") {
-    if (currentInput) {
-      currentInput = (parseFloat(currentInput) * -1).toString();
-      display.value = currentInput;
-    }
+  if (value === "+/-" && currentInput) {
+    currentInput = (-parseFloat(currentInput)).toString();
+    display.value = currentInput;
   }
 }
